@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extension-Helpers-DotNet-Standard-2.0" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.10.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PaymentApplication.Models\PaymentApplication.Models.csproj" />
+    <ProjectReference Include="..\PaymentApplication.Repository\PaymentApplication.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\0e2be47b-81e0-47b4-a0cc-eb3db269e233_Developing-Enterprise.jpg" />
+    <None Include="wwwroot\images\12390124-5a52-46fc-b963-1ac84aa3520b_advanced-java.jpg" />
+    <None Include="wwwroot\images\13650ce4-856a-49d1-9526-96074f0dbd29_.net-core.jpg" />
+    <None Include="wwwroot\images\2953ef74-ee24-4557-ab3d-609193853185_Developing-Enterprise.jpg" />
+    <None Include="wwwroot\images\33a1c671-e2d2-4f18-9a5e-0564bfc39f8b_docker.jpg" />
+    <None Include="wwwroot\images\40688b5e-9fde-4b5d-bfff-d2eb2e8577dc_aws.jpg" />
+    <None Include="wwwroot\images\511aa12a-b67d-488e-91ee-674804a4c861_docker.jpg" />
+    <None Include="wwwroot\images\57672c96-fa85-4b48-bc7d-0a99b2d1aab7_Developing-Enterprise.jpg" />
+    <None Include="wwwroot\images\86e6405d-0496-497e-afb8-6768d61b3da1_AZ-900.jpg" />
+    <None Include="wwwroot\images\db4b3bde-27ed-46e9-8853-48d4c0ba9fdf_angularjs.jpg" />
+    <None Include="wwwroot\images\eea1c583-55f1-4791-ba4b-f3151254d274_Developing-Enterprise.jpg" />
+    <None Include="wwwroot\images\fcecdbe4-faed-4bdd-ad80-70492f7177aa_docker.jpg" />
+  </ItemGroup>
+
+
+</Project>

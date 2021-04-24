@@ -1,0 +1,28 @@
+<div class="row p-0">
+  <div class="float-label">
+    <form #customLogin="ngForm" style="width:100%" (ngSubmit)="CustomLogin(customLogin.value)">
+      <div class=" PR col-sm-12 col-md-12 col-lg-12  mb-2 ">
+        <input type="text" name="UserName" maxlength="100" #email="ngModel" (ngModel)="UserName" class="wd" placeholder="EmailId" required>
+      </div>
+      <span [hidden]="email.valid || email.pristine" class="text-center offset-1">
+        <span [hidden]="!email.errors?.required" class="red fontsize">
+          Email is required. <br />
+        </span>
+      </span>
+      <div class="PR usepwd col-sm-12 col-md-12 col-lg-12  mb-2">
+        <input type="password" name="Password" #password="ngModel" (ngModel)="Password" class="wd text-black" placeholder="Password" required>
+      </div>
+      <span [hidden]="password.valid || password.pristine" class="text-center offset-1">
+        <span [hidden]="!password.errors?.required" class="red fontsize">
+          Password is required. <br />
+        </span>
+      </span>
+      <!--<div class="PR col-sm-12 col-md-12 col-lg-12  mb-2">
+        <a data-dismiss="modal" data-toggle="modal" class="fpass pointer" data-target="#forgotpwdModal" (click)="open(content)" style="font-size:13px;font-family:sans-serif;font-weight:700;color:#638ef5">Forgot my password</a>
+      </div>-->
+      <div class="form-group">
+        <button type="submit" [disabled]="!customLogin.valid" class="signinbg">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

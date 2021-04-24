@@ -1,0 +1,156 @@
+<form #userDetail="ngForm" (ngSubmit)="SubmitBasicForm(userDetail.value)">
+  <div class="row">
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="firstName">First Name<span class="red">*</span></label>
+        <input type="text" class="col-md-10 form-control" name="firstName" minlength="4" #fname="ngModel" (ngModel)="userProfile.FirstName" required>
+      </div>
+      <span [hidden]="fname.valid || fname.pristine" class="text-center offset-md-2">
+        <span [hidden]="!fname.errors?.required" class="red fontsize">
+          First Name is required. <br />
+        </span>
+        <span [hidden]="!fname.errors?.minlength" class="red fontsize">
+          Name must be more than 3 charecters. <br />
+        </span>
+      </span>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="middleName">Middle Name</label>
+        <input type="text" class="col-md-10 form-control" name="middleName" (ngModel)="userProfile.MiddleName">
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="lastname">Last Name<span class="red">*</span></label>
+        <input type="text" class="col-md-10 form-control" name="lastname" minlength="4" #lname="ngModel" (ngModel)="userProfile.LastName" required>
+      </div>
+      <span [hidden]="lname.valid || lname.pristine" class="text-center offset-md-2">
+        <span [hidden]="!lname.errors?.required" class="red fontsize">
+          Last Name is required. <br />
+        </span>
+        <span [hidden]="!lname.errors?.minlength" class="red fontsize">
+          Name must be more than 3 charecters. <br />
+        </span>
+      </span>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="email">Email</label>
+        <input type="email" class="col-md-10 form-control" name="EmailId" (ngModel)="userProfile.EmailId">
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="PhoneNumber">Phone Number<span class="red">*</span></label>
+        <input type="text" class="col-md-10 form-control" name="PhoneNumber" #pno="ngModel" (ngModel)="userProfile.PhoneNumber" [pattern]="mobnumPattern" required>
+      </div>
+      <span [hidden]="pno.valid || pno.pristine" class="text-center offset-md-2">
+        <span [hidden]="!pno.errors?.required" class="red fontsize">
+          Phone number is required. <br />
+        </span>
+        <span [hidden]="!pno.errors?.pattern" class="red fontsize">
+          Please enter a valid phone number. <br />
+        </span>
+      </span>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="password">Password</label>
+        <input type="text" class="col-md-10 form-control" name="password" (ngModel)="userProfile.Password">
+      </div>
+    </div>
+
+
+    <div class="col-md-12 mt-2">
+      <div class="row">
+        <div class="col-sm-2">
+          <label class=" p-0 fontsize" for="gender">Gender</label>
+        </div>
+        <div class="col-sm-10">
+          <label class="radio-inline"><input type="radio" value="male" name="gender" (ngModel)="userProfile.Gender" checked required #gender="ngModel"> Male</label>
+          <label class="radio-inline"><input type="radio" value="female" name="gender" (ngModel)="userProfile.Gender" required #gender="ngModel"> Female</label>
+          <label class="radio-inline"><input type="radio" value="other" name="gender" (ngModel)="userProfile.Gender" required #gender="ngModel"> Other</label>
+        </div>
+      </div>
+      <div *ngIf="gender.invalid">
+        Gender required.
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class=" row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="country">Country<span class="red">*</span></label>
+        <input type="text" class="col-md-10 form-control" name="Country" #country="ngModel" (ngModel)="userProfile.Country" required>
+      </div>
+      <span [hidden]="country.valid || country.pristine" class="text-center offset-md-2">
+        <span [hidden]="!country.errors?.required" class="red fontsize">
+          Country name is required. <br />
+        </span>
+      </span>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="Location">Address<span class="red">*</span></label>
+        <input type="text" class="col-md-10 form-control" name="Location" #location="ngModel" (ngModel)="userProfile.Location" required>
+      </div>
+      <span [hidden]="location.valid || location.pristine" class="text-center offset-md-2">
+        <span [hidden]="!location.errors?.required" class="red fontsize">
+          Address is required. <br />
+        </span>
+      </span>
+    </div>
+
+
+    <div class="col-md-12 mt-2">
+      <div class="row">
+        <div class="col-sm-2">
+          <label class=" p-0 fontsize" for="gender">Role</label>
+        </div>
+        <div class="col-sm-10">
+          <select name="FKRoleId" class="form-control" [(ngModel)]="userProfile.FKRoleId">
+    <option disabled [selected]="selected">Select Role</option>
+    <option *ngFor="let role of roles" [value]="role.PKRoleId">{{role.RoleName}}</option>
+  </select>
+
+          <!--<select class="form-control" name="Role" [(ngModel)]="category.status">
+            <option [value]="1" [selected]="category.status ==1">Active</option>
+            <option [value]="0" [selected]="category.status ==0">In Active</option>
+          </select>-->
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="col-md-12 mt-2">
+      <div class="row m-0 p-0 form-group input-group-sm">
+        <label class="col-md-2 p-0 fontsize" for="image">Image</label>
+        <input type="file" #file class="col-md-10 p-0" id="imageURL" name="imageURL" (change)="onChangeFileInput($event)" accept="image/*">
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="row">
+        <div class="col-sm-2">
+          <label class=" p-0 fontsize" for="gender">IsActive</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="checkbox" name="IsActive" (ngModel)="userProfile.IsActive">
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+    <br />
+    <div class="form-group offset-md-2">
+      <button type="submit" [disabled]="!userDetail.valid" class="btn btn-primary">Save</button>
+      <a class="btn btn-danger" [routerLink]="['/user-detail']" >Cancel</a>
+    </div>
+</form>
